@@ -25,3 +25,4 @@ class MyApp extends StatelessWidget {
 
 
 //Adicionado pelo github
+//alterado no vscode
