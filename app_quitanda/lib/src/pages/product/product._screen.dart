@@ -5,7 +5,7 @@ import 'package:app_quitanda/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
 
 class ProductScreen extends StatefulWidget {
-  ProductScreen({super.key, required this.item});
+  const ProductScreen({super.key, required this.item});
 
   final ItemModel item;
 

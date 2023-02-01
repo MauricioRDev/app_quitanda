@@ -1,11 +1,34 @@
 import 'package:app_quitanda/src/config/custom_colors.dart';
+import 'package:app_quitanda/src/models/cart_item_model.dart';
+import 'package:app_quitanda/src/pages/cart/components/cart_tile.dart';
 import 'package:app_quitanda/src/services/utils_services.dart';
 import 'package:flutter/material.dart';
+import 'package:app_quitanda/src/config/app_data.dart' as appData;
 
-class CartTab extends StatelessWidget {
-  CartTab({super.key});
+class CartTab extends StatefulWidget {
+  const CartTab({super.key});
 
+  @override
+  State<CartTab> createState() => _CartTabState();
+}
+
+class _CartTabState extends State<CartTab> {
   final UtilServices utilServices = UtilServices();
+
+  void removeItemFromCart(CartItemModel cartItem) {
+    setState(() {
+      appData.cartItems.remove(cartItem);
+    });
+  }
+
+  double cartTotalPrice() {
+    double total = 0;
+    for (var item in appData.cartItems) {
+      total += item.totalPrice();
+    }
+
+    return total;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +38,19 @@ class CartTab extends StatelessWidget {
       ),
       body: Column(
         children: [
+          //LISTA DE ITENS do carrinho
           Expanded(
-            child: Placeholder(
-              color: Colors.red,
+            child: ListView.builder(
+              itemCount: appData.cartItems.length,
+              itemBuilder: (_, index) {
+                return CartTile(
+                    cartItem: appData.cartItems[index],
+                    remove: removeItemFromCart);
+              },
             ),
           ),
-          const SizedBox(
-            height: 20,
-          ),
+
+          //Total e botão de concluir pedido
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
@@ -48,7 +76,7 @@ class CartTab extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  utilServices.priceToCurrency(50.5),
+                  utilServices.priceToCurrency(cartTotalPrice()),
                   style: TextStyle(
                     fontSize: 23,
                     color: CustomColors.customSwatchColor,
