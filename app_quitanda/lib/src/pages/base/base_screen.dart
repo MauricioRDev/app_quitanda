@@ -1,3 +1,4 @@
+import 'package:app_quitanda/src/pages/cart/cart_tab.dart';
 import 'package:app_quitanda/src/pages/home/home_tab.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,7 @@ class _BaseScreenState extends State<BaseScreen> {
         controller: pageController,
         children: [
           const HomeTab(),
-          Container(color: Colors.yellow),
+           CartTab(),
           Container(color: Colors.blue),
           Container(color: Colors.purple),
         ],

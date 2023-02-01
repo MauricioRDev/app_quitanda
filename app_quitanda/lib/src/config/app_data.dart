@@ -50,11 +50,10 @@ ItemModel papaya = ItemModel(
 
 List<ItemModel> items = [apple, grape, mango, kiwi, guava, papaya];
 
-
 List<String> categories = [
-    'Frutas',
-    'Legumes',
-    'Grão',
-    'Cereais',
-    'Temperos',
-  ];
+  'Frutas',
+  'Legumes',
+  'Grão',
+  'Cereais',
+  'Temperos',
+];
