@@ -92,7 +92,9 @@ class _CartTabState extends State<CartTab> {
                         borderRadius: BorderRadius.circular(18),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      showOrderConfirmation();
+                    },
                     child: const Text(
                       'Concluir Pedido',
                       style: TextStyle(
@@ -106,6 +108,28 @@ class _CartTabState extends State<CartTab> {
           ),
         ],
       ),
+    );
+  }
+
+  Future<bool?> showOrderConfirmation() {
+    return showDialog<bool>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text('Confirmação'),
+          content: const Text('Deseja Realmente concluir o Pedido?'),
+          actions: [
+            TextButton(
+              onPressed: () {},
+              child: const Text('Não'),
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Sim'),
+            ),
+          ],
+        );
+      },
     );
   }
 }
