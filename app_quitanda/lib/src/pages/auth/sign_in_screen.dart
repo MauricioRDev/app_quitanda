@@ -1,8 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:app_quitanda/src/pages/auth/components/custom_text_field.dart';
+import 'package:app_quitanda/src/pages/common_widgets/custom_text_field.dart';
 import 'package:app_quitanda/src/pages/base/base_screen.dart';
 import 'package:app_quitanda/src/config/custom_colors.dart';
-import 'package:app_quitanda/src/config/sing_up_stream.dart';
+import 'package:app_quitanda/src/pages/auth/sing_up_stream.dart';
 import 'package:flutter/material.dart';
 
 class SignInScreen extends StatelessWidget {
